@@ -9,16 +9,6 @@ function App() {
       .then((resp) => setData(resp));
   }, []);
 
-  function deleteUser(id) {
-    fetch(`https://jsonplaceholder.typicode.com/users${id}`, {
-      method: "DELETE",
-    }).then((result) => {
-      result.json().then((resp) => {
-        console.warn(resp);
-      });
-    });
-  }
-
   return (
     <div>
       <h1>Get Api Call</h1>
@@ -29,11 +19,6 @@ function App() {
             <td>{item.name}</td>
             <td>{item.username}</td>
             <td>{item.email}</td>
-            <td>
-              <button type="button" onClick={() => deleteUser(item.id)}>
-                Delete
-              </button>
-            </td>
           </tr>
         ))}
       </table>
